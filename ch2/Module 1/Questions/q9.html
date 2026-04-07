@@ -1,0 +1,53 @@
+<!-- write a code to increc the font size at interval of 50 mili secound and it
+should stopincrecing when the font size rich in to 50 px . this task suld be
+perform when you click buotton on browser.(defoul font size 50 px) -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRThummar</title>
+  </head>
+  <body>
+    <button
+      style="
+        background-color: plum;
+        color: navy;
+        border-radius: 50px;
+        height: 50px;
+        width: 120px;
+        border: 5px;
+        border-color: royalblue;
+        border-style: dashed;
+        padding: 2px;
+        font-style: italic;
+        font-weight: bolder;
+      "
+      onclick="start()"
+    >
+      Increse Size
+    </button>
+
+    <p id="p1" style="font-size: 15px">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis vero
+      suscipit, facere quam perspiciatis harum ex ratione delectus totam
+      aspernatur, voluptatum possimus minus obcaecati optio sapiente? Odio
+      aperiam eligendi delectus.
+    </p>
+
+    <script>
+      let font = 15;
+      function start() {
+        setInterval(() => {
+          if (font < 50) {
+            fun(font++);
+          }
+        }, 1000);
+      }
+      function fun(font) {
+        document.getElementById("p1").style.fontSize = font + "px";
+      }
+    </script>
+  </body>
+</html>

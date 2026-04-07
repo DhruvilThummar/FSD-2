@@ -1,0 +1,101 @@
+<!-- write a code to perform the task as asked below.
+1. add three boutons
+2. incre boutton to incres the fonts. it shod stop incresing when the font size rechis to 200 px or stop boutton is clicked 
+3. deccrice boutton to decrise the font. it shod stop deccrising when font size richis to 20 px or stop boutton is clicked. incresing and deccrising inteswal is 100mili sec. default=50px. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRThummar</title>
+  </head>
+  <body>
+    <button
+      style="
+        background-color: plum;
+        color: navy;
+        border-radius: 50px;
+        height: 50px;
+        width: 120px;
+        border: 5px;
+        border-color: royalblue;
+        border-style: dashed;
+        padding: 2px;
+        font-style: italic;
+        font-weight: bolder;
+      "
+      onclick="start()"
+    >
+      Increse Size ↑
+    </button>
+
+    <button
+      style="
+        background-color: plum;
+        color: navy;
+        border-radius: 50px;
+        height: 50px;
+        width: 120px;
+        border: 5px;
+        border-color: royalblue;
+        border-style: dashed;
+        padding: 2px;
+        font-style: italic;
+        font-weight: bolder;
+      "
+      onclick="restart()"
+    >
+      Decrese Size ↓
+    </button>
+
+    <button
+      style="
+        background-color: plum;
+        color: navy;
+        border-radius: 50px;
+        height: 50px;
+        width: 120px;
+        border: 5px;
+        border-color: royalblue;
+        border-style: dashed;
+        padding: 2px;
+        font-style: italic;
+        font-weight: bolder;
+      "
+      onclick="stop()"
+    >
+      Stop ◉
+    </button>
+
+    <p id="p1" style="font-size: 50px">DR Thummar</p>
+
+    <script>
+      let font = 50;
+
+      function start() {
+        test = setInterval(() => {
+          if (font < 200) {
+            fun(font++);
+          }
+        }, 1000);
+      }
+
+      function restart() {
+        test = setInterval(() => {
+          if (font > 50) {
+            fun(font--);
+          }
+        }, 1000);
+      }
+
+      function fun(font) {
+        document.getElementById("p1").style.fontSize = font + "px";
+      }
+
+      function stop() {
+        clearInterval(test);
+      }
+    </script>
+  </body>
+</html>

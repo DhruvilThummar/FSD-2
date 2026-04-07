@@ -1,0 +1,57 @@
+<!-- // inatialize 2 varialble and increment both the verbail and displate the addition of the both the varibale at interval of 1 secound. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRThummar</title>
+  </head>
+  <body>
+    <button
+      style="
+        background-color: rgba(59, 2, 2, 0.572);
+        color: aqua;
+        border-radius: 50px;
+        height: 50px;
+        width: 90px;
+      "
+      onclick="stop()"
+    >
+      Stop
+    </button>
+
+    <p id="p1"></p>
+
+    <button
+      style="
+        background-color: rgba(59, 2, 2, 0.572);
+        color: aqua;
+        border-radius: 50px;
+        height: 50px;
+        width: 90px;
+      "
+      onclick="start()"
+    >
+      Start
+    </button>
+
+    <script>
+      let a = 2,
+        b = 5;
+      test = setInterval(() => {
+        document.getElementById("p1").innerHTML = ++a + ++b;
+      }, 1000);
+
+      function stop() {
+        clearInterval(test);
+      }
+      
+      function start() {
+        setInterval(() => {
+          document.getElementById("p1").innerHTML = ++a + ++b;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

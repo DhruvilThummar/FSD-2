@@ -1,0 +1,22 @@
+<!-- Q3 Write one json string with date property and print date in indian standerd time while clicking on boutton -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRThummar</title> 
+</head>
+<body>
+    <script>
+        function clickdate() {
+            const obj = JSON.parse('{"Name":"abc","dob":"1994-04-30"}');
+            var a = new Date(obj.dob);
+
+            document.getElementById("demo").innerHTML='<div style="color:pink">'+a+'</div>';
+        }
+    </script>
+    <button onclick="clickdate()">Click Me</button>
+    <p id="demo"></p>
+</body>
+</html>

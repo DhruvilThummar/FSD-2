@@ -1,0 +1,2 @@
+[{"name":"circle","diameter":8},{"name":"square","side":10}]
+[{"name":"perameter_of_c","perameter":25.12},{"name":"perameter_of_s","perameter":40}]

@@ -1,0 +1,31 @@
+<!-- Displye content on browser after 5 secounds -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRThummar</title>
+  </head>
+  <body>
+    <script>
+      setTimeout(function () {
+        document.getElementById("content").innerHTML = ".";
+      }, 1000);
+      setTimeout(function () {
+        document.getElementById("content").innerHTML = "..";
+      }, 2000);
+      setTimeout(function () {
+        document.getElementById("content").innerHTML = "...";
+      }, 3000);
+      setTimeout(function () {
+        document.getElementById("content").innerHTML = ".....";
+      }, 4000);
+      setTimeout(function () {
+        document.getElementById("content").innerHTML = "Hello! How are you?";
+      }, 5000);
+    </script>
+
+    <p id="content"></p>
+  </body>
+</html>
