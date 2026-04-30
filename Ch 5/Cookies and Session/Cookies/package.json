@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "cookie": "^1.1.1",
+    "cookie-parser": "^1.4.7",
+    "escape-html": "^1.0.3",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "react": "^19.2.5"
+  }
+}
