@@ -296,7 +296,8 @@ npm install
 node "path/to/server.js"
 ```
 
-## Suggested Learning Path
+
+## 🎯 Suggested Learning Path
 
 ### **Phase 1: Node.js Fundamentals (3-4 days)**
 1. **Ch 2**: JavaScript modules and CommonJS
@@ -320,7 +321,45 @@ node "path/to/server.js"
    - [ ] EJS templating
    - [ ] File uploads and email
 
-## 💡 Tips for Success
+## ⚡ Quick Commands Reference
+
+### File Execution
+```bash
+# Run any JavaScript file (always use quotes with spaces in path)
+node "Ch 2/Module 1/1.js"
+node "Ch 3/http module/8.js"
+node "Ch 3/url module/7.js"
+```
+
+### Express Servers
+```bash
+# Navigate to chapter directory, install, and run
+cd "Ch 4" && npm install && npm start
+cd "Ch 5/Express/Backend" && npm install && npm start
+cd "Ch 6" && npm install && npm start
+```
+
+### Port Management
+```bash
+# Check which process is using a port
+lsof -i :3000              # macOS/Linux
+netstat -ano | findstr :3000  # Windows
+
+# Kill process on port 3000
+lsof -ti:3000 | xargs kill -9  # macOS/Linux
+taskkill /PID <PID> /F         # Windows
+```
+
+### Node.js Debugging
+```bash
+# Run with inspector
+node --inspect "Ch 4/1.js"
+
+# Open in Chrome
+chrome://inspect
+```
+
+## 💡 Best Practices for Learning
 
 - **Read markdown files first** — Each question `.md` contains detailed requirements
 - **Compare with solutions** — Study the `answer/` folder to see best practices
@@ -331,7 +370,30 @@ node "path/to/server.js"
 - **Use browser DevTools** — Inspect requests/responses for HTML exercises
 - **Ask why, not just how** — Understand concepts, not just syntax
 
-## 📚 Additional Resources
+## 🌐 Using Live Server
+
+### VS Code Extension Method
+1. Install [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+2. Right-click any `.html` file → **"Open with Live Server"**
+3. Browser automatically opens at `http://localhost:5500`
+4. Changes in files auto-refresh browser
+
+### Common HTML Files to Test
+- `Ch 2/Module 1/1.html` — Basic HTML example
+- `Ch 5/question/q1/Express/html/1.html` — Express with frontend
+- `Ch 5/question/q4/answer/calc.html` — Calculator project
+- `Ch 6/Multer/index.html` — File upload interface
+
+### EJS Files (Require Server)
+EJS files cannot be viewed directly in browser; they need Express server running:
+```bash
+cd "Ch 6"
+npm install
+npm start
+# Then visit http://localhost:3000
+```
+
+## 📚 Resources & Documentation
 
 ### Official Documentation
 - [Node.js Docs](https://nodejs.org/docs/)
@@ -350,18 +412,68 @@ node "path/to/server.js"
 - [Node University](https://node.university/)
 - [Scrimba Web Dev](https://scrimba.com/)
 
-## 📧 Getting Help
+## 🤝 Contributing & Extending
 
-If you encounter issues:
-1. Check the troubleshooting section above
-2. Review `answer/` folders for reference implementations
-3. Check `.md` files for detailed instructions
-4. Verify Node.js and npm versions match prerequisites
+### Want to Add More Exercises?
+1. Create a new `question` folder in the appropriate chapter
+2. Add `q#.md` with clear problem statement and requirements
+3. Create `answer/` subfolder with solution code
+4. Include `package.json` if it's an Express project
+5. Update this README with the new exercise reference
 
-## 📄 Tips
+### Improving Existing Content
+- Fix typos or unclear explanations
+- Add helpful comments to code examples
+- Expand `.md` files with more detailed walkthroughs
+- Add alternative solutions to answer folders
 
-- Read the `.md` files in question folders for detailed instructions
-- Check `answer/` directories for working solutions
-- Use `package.json` to understand dependencies and available scripts
-- Test HTML files in a browser to see frontend rendering
-- Use Node.js debugging: `node --inspect "file.js"` then open `chrome://inspect`
+## 📧 Support & Feedback
+
+### Troubleshooting Checklist
+1. **Error occurs?** → Check the "Troubleshooting" section above
+2. **Confused about requirements?** → Read the `q#.md` file carefully
+3. **Code not working?** → Compare with `answer/` folder implementation
+4. **Older Node.js version?** → Update to v18+: https://nodejs.org/
+
+### Getting Help
+- 📖 Review answer implementations in `answer/` folders
+- 📝 Check question `.md` files for detailed workflows
+- 🔍 Use Node.js debugger for step-by-step execution
+- 💬 Compare your output with expected results documented in `.md` files
+
+---
+
+**Happy Learning! 🚀**
+
+---
+## Contact
+
+<p align="center">
+   <a href="https://github.com/DhruvilThummar" target="_blank" rel="noopener noreferrer">
+      <img src="https://github.com/DhruvilThummar.png" alt="DRThummar avatar" width="92" style="border-radius:46px;border:2px solid #eee;" />
+   </a>
+   <br />
+   <strong style="font-size:1.1em">DRThummar</strong>
+   <br />
+   <a href="https://drthummar.me" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/Portfolio-Visit%20DrThummar-1f6feb?style=for-the-badge&logo=google-chrome" alt="Visit portfolio" />
+   </a>
+   &nbsp;
+   <a href="https://github.com/DhruvilThummar" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/GitHub-@DhruvilThummar-181717?style=for-the-badge&logo=github" alt="GitHub profile" />
+   </a>
+   <br />
+   <a href="https://drthummar.me" target="_blank" rel="noopener noreferrer" style="text-decoration:none;margin-top:6px;display:inline-block">
+      <strong>🔗 View portfolio • drthummar.me</strong>
+   </a>
+</p>
+
+---
+
+## Project Status
+
+- **Status:** Active — content and exercises are regularly updated
+- **Audience:** Beginners → Intermediate learners
+
+If you'd like to contribute or report issues, open a pull request or issue on the repository.
+
