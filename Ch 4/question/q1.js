@@ -46,10 +46,3 @@ app.listen(3001,"localhost", ()=>{
     console.log("Server is live")
     console.log("On : http://localhost:3001");
 });
-
-app.listen(3001,"localhost",
-    ()=>{
-        console.log("Server is live")
-        console.log("On : http://localhost:3001");
-    }
-)
