@@ -1,152 +1,95 @@
-# cookie
+# Cookies in Express.js
 
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][npm-url]
-[![Build Status][ci-image]][ci-url]
-[![Coverage Status][coverage-image]][coverage-url]
+## What are Cookies?
 
-Basic HTTP cookie parser and serializer for HTTP servers.
+Cookies are small pieces of data stored on the client's browser. They are sent with every HTTP request to the server, making them useful for:
+- Storing user preferences
+- Tracking sessions
+- Maintaining login state
+- Analytics
 
-## Installation
-
-```sh
-$ npm install cookie
-```
-
-## API
+## Setting Cookies
 
 ```js
-const cookie = require("cookie");
-// import * as cookie from 'cookie';
+res.cookie('cookieName', 'cookieValue');
 ```
 
-### cookie.parseCookie(str, options)
-
-Alias: `parse(str, options)` ([deprecated](#deprecated))
-
-Parse an HTTP `Cookie` header string and return an [object](#cookie-object) of all cookie name-value pairs.
-The `str` argument is the string representing a `Cookie` header value and `options` is an
-optional object containing additional parsing options.
+### With Options
 
 ```js
-const cookieObject = cookie.parseCookie("foo=bar; equation=E%3Dmc%5E2");
-// { foo: 'bar', equation: 'E=mc^2' }
-```
-
-#### Options
-
-- `decode` Specifies the function to decode a [cookie-value](https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1). Defaults to [`decodeURIComponent`](#encode-and-decode).
-
-### cookie.stringifyCookie(cookieObj, options)
-
-Stringifies a [cookie object](#cookie-object) into an HTTP `Cookie` header.
-
-```js
-const cookieHeader = cookie.stringifyCookie({ a: "foo", b: "bar" });
-// a=foo; b=bar
-```
-
-#### Options
-
-- `encode` Specifies the function to encode a [cookie-value](https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1). Defaults to [`encodeURIComponent`](#encode-and-decode).
-
-### cookie.parseSetCookie(str, options)
-
-Parse an HTTP `Set-Cookie` header string and return an [object](#set-cookie-object) of the options.
-
-```js
-const setCookieObject = cookie.parseSetCookie("foo=bar; httpOnly");
-// { name: "foo", value: "bar", httpOnly: true }
-```
-
-**Note:** Cookie follows the specification and ignores invalid attributes, but does not attempt to normalize or modify any attributes as a browser might. For example:
-
-```js
-cookie.parseSetCookie(
-  "session=abc; max-age=1.5; expires=invalid; custom=value; domain=example.com",
-);
-// { name: "session", value: "abc", domain: "example.com" }
-```
-
-#### Options
-
-- `decode` Specifies the function to decode a [cookie-value](https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1). Defaults to [`decodeURIComponent`](#encode-and-decode).
-
-### cookie.stringifySetCookie(setCookieObj, options)
-
-Alias: `serialize(str, val, options)` ([deprecated](#deprecated))
-
-Stringifies a [`Set-Cookie` object](#set-cookie-object) into a `Set-Cookie` header string.
-
-```js
-const setCookieHeader = cookie.stringifySetCookie({
-  name: "foo",
-  value: "bar",
+res.cookie('cookieName', 'cookieValue', {
+  maxAge: 1000 * 60 * 60 * 24,  // 24 hours
+  httpOnly: true,                // Not accessible via client-side JavaScript
+  secure: false,                 // Use HTTPS only
+  sameSite: 'strict'             // CSRF protection
 });
-// foo=bar
 ```
 
-#### Options
+## Reading Cookies
 
-- `encode` Specifies the function to encode a [cookie-value](https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.1). Defaults to [`encodeURIComponent`](#encode-and-decode).
+```js
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const app = express();
 
-## Cookie object
+app.use(cookieParser());
 
-The cookie object represents all cookie name-value pairs in a `Cookie` header, where `{ name: "value" }` is used for `name=value`.
+app.get('/', (req, res) => {
+  console.log(req.cookies);  // Access all cookies
+  console.log(req.cookies.cookieName);  // Access specific cookie
+});
+```
 
-## `Set-Cookie` object
+## Clearing Cookies
 
-The `Set-Cookie` object represents all the options in a `Set-Cookie` header.
+```js
+res.clearCookie('cookieName');
+```
 
-### name
+## Common Cookie Options
 
-The name of the cookie.
+| Option | Purpose | Example |
+|--------|---------|---------|
+| `maxAge` | Cookie lifetime in milliseconds | `{ maxAge: 3600000 }` (1 hour) |
+| `expires` | Expiration date | `{ expires: new Date(2025, 0, 1) }` |
+| `httpOnly` | Prevent client-side JavaScript access | `{ httpOnly: true }` |
+| `secure` | Send over HTTPS only | `{ secure: true }` |
+| `sameSite` | CSRF protection | `{ sameSite: 'strict' }` |
+| `path` | Cookie path | `{ path: '/' }` |
+| `domain` | Cookie domain | `{ domain: 'example.com' }` |
 
-### value
+## Example: User Preferences Cookie
 
-The value of a cookie after it has been [decoded](#encode-and-decode).
+```js
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const app = express();
 
-### maxAge
+app.use(cookieParser());
 
-Specifies the `number` (in seconds) to be the value for the [`Max-Age` `Set-Cookie` attribute](https://tools.ietf.org/html/rfc6265#section-5.2.2).
+app.get('/set-preferences', (req, res) => {
+  res.cookie('theme', 'dark');
+  res.cookie('language', 'en');
+  res.send('Cookies set!');
+});
 
-The [cookie storage model specification](https://tools.ietf.org/html/rfc6265#section-5.3) states that if both `expires` and
-`maxAge` are set, then `maxAge` takes precedence, but it is possible not all clients by obey this,
-so if both are set, they should point to the same date and time.
+app.get('/get-preferences', (req, res) => {
+  const theme = req.cookies.theme || 'light';
+  const language = req.cookies.language || 'en';
+  res.json({ theme, language });
+});
 
-### expires
+app.listen(3000);
+```
 
-Specifies the `Date` object to be the value for the [`Expires` `Set-Cookie` attribute](https://tools.ietf.org/html/rfc6265#section-5.2.1).
-When no expiration is set, clients consider this a "non-persistent cookie" and delete it when the current session is over.
+## Best Practices
 
-The [cookie storage model specification](https://tools.ietf.org/html/rfc6265#section-5.3) states that if both `expires` and
-`maxAge` are set, then `maxAge` takes precedence, but it is possible not all clients by obey this,
-so if both are set, they should point to the same date and time.
-
-### domain
-
-Specifies the value for the [`Domain` `Set-Cookie` attribute](https://tools.ietf.org/html/rfc6265#section-5.2.3).
-When no domain is set, clients consider the cookie to apply to the current domain only.
-
-### path
-
-Specifies the value for the [`Path` `Set-Cookie` attribute](https://tools.ietf.org/html/rfc6265#section-5.2.4).
-When no path is set, the path is considered the ["default path"](https://tools.ietf.org/html/rfc6265#section-5.1.4).
-
-### httpOnly
-
-Enables the [`HttpOnly` `Set-Cookie` attribute](https://tools.ietf.org/html/rfc6265#section-5.2.6).
-When enabled, clients will not allow client-side JavaScript to see the cookie in `document.cookie`.
-
-### secure
-
-Enables the [`Secure` `Set-Cookie` attribute](https://tools.ietf.org/html/rfc6265#section-5.2.5).
-When enabled, clients will only send the cookie back if the browser has an HTTPS connection.
-
-### partitioned
-
-Enables the [`Partitioned` `Set-Cookie` attribute](https://tools.ietf.org/html/draft-cutler-httpbis-partitioned-cookies/).
-When enabled, clients will only send the cookie back when the current domain _and_ top-level domain matches.
+1. **Security**: Use `httpOnly` flag to prevent XSS attacks
+2. **Expiration**: Set appropriate `maxAge` values
+3. **HTTPS**: Use `secure` flag in production
+4. **CSRF**: Use `sameSite` for CSRF protection
+5. **Size**: Keep cookies small (4KB max per cookie)
+6. **Privacy**: Inform users about cookie usage
 
 This is an attribute that has not yet been fully standardized, and may change in the future.
 This also means clients may ignore this attribute until they understand it. More information

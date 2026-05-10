@@ -1,90 +1,180 @@
 # FSD-2
 
-Practice repository for Full Stack Development exercises.
+Comprehensive Full Stack Development practice repository with exercises across Node.js, Express, and related technologies.
 
 ## Overview
 
-This repository is organized chapter-wise and module-wise. It contains:
+This repository is divided into two main sections:
 
-- JavaScript practice files
-- HTML practice pages
-- Text-based question sets and notes
-- Small JSON/text examples
+### **Part 1: Node.js Fundamentals (Ch 2-3)**
+- JavaScript modules and practices
+- Node.js core modules (HTTP, URL)
+- Basic server-side concepts
 
-Most files are standalone exercises and can be run independently.
+### **Part 2: Express.js Development (Ch 4-6)**
+- Express.js routing and middleware
+- Session management and Cookies
+- EJS templating engine
+- File uploads (Multer)
+- Email handling (Node Mailer)
+- Full-stack web applications
+- Q&A exercises with solutions
 
 ## Repository Structure
 
 ```text
 FSD-2/
-├── ch2/
+├── Ch 2/ - JavaScript Fundamentals & Modules
 │   ├── Module 1/
-│   │   ├── 1.html, 1.js, 1.json, 3.js, 4.js
-│   │   └── Questions/
-│   │       ├── q1.js ... q16.js
-│   │       ├── q3.html, q7.html, q8.html, q9.html, q10.html
-│   │       └── supporting .txt files
+│   │   ├── 1.html, 1.js, 1.json, 3.js, 4.js, c.txt
+│   │   └── Questions/ (16 questions + supporting files)
 │   ├── Module 2/
 │   │   ├── 5.js
-│   │   └── Question/
-│   │       ├── q1.js
-│   │       └── LJ/temp.txt
+│   │   └── Question/ (q1.js + sub-folders)
 │   └── Module 3/
 │       ├── 6.js
-│       └── question/
-│           ├── q1.js ... q4.js
-│           └── abc.txt
-└── ch3/
-    ├── url module/
-    │   ├── 7.js
-    │   └── Question/q1.js
-    └── http module/
-        ├── 8.js
-        └── Questions/
-            ├── q1.js, q2.js
-            └── exam.txt
+│       └── question/ (q1.js - q4.js + abc.txt)
+│
+├── Ch 3/ - Node.js Core Modules
+│   ├── http module/
+│   │   ├── 8.js
+│   │   └── Questions/ (q1.js, q2.js + exam.txt)
+│   └── url module/
+│       ├── 7.js
+│       └── Question/ (q1.js)
+│
+├── Ch 4/ - Express Basics & Middleware
+│   ├── 1.js, 2.js, package.json, query.js
+│   ├── middleware/ (q1.js, q2.js)
+│   └── question/ (q1.js - q5.js)
+│
+├── Ch 5/ - Express Advanced + Cookies/Session
+│   ├── Express/
+│   │   ├── Backend/ (1.js + package.json)
+│   │   ├── Frontend/ (index.html + 1.css)
+│   │   └── Folder Structures.md
+│   │
+│   ├── Cookies and Session/
+│   │   ├── Cookies/ (cookie.js + q1/ with answer)
+│   │   └── Session/ (session.js + q1 & q2 questions)
+│   │
+│   └── question/ (q1 - q7 with answers)
+│       ├── q1 - q7 (each with q#.md + answer/ containing backend & frontend)
+│
+├── Ch 6/ - EJS Templates, Multer & Node Mailer
+│   ├── EJS/ (ejs.md + q1 & Start folders)
+│   │   ├── q1/ (q1.md + form.ejs, my.js, result.ejs)
+│   │   └── Start/ (app.js + Views/first.ejs)
+│   │
+│   ├── Multer/ (index.html + m1.js + lju/)
+│   │
+│   └── Node mailer/ (mailer.js)
+│
+└── README.md
 ```
 
 ## Prerequisites
 
-- Node.js (recommended: v18 or later)
-- A modern web browser (for `.html` files)
+- **Node.js** (v18 or later recommended)
+- **npm** (comes with Node.js)
+- A modern web browser (Chrome, Firefox, Safari, Edge)
 
 Check your Node version:
 
 ```bash
 node -v
+npm -v
 ```
+
+## Setup & Installation
+
+1. Clone or navigate to the repository:
+   ```bash
+   cd FSD-2
+   ```
+
+2. Install dependencies (for chapters with `package.json`):
+   ```bash
+   cd "Ch 4"
+   npm install
+   ```
+
+   Or for Express projects:
+   ```bash
+   cd "Ch 5/Express/Backend"
+   npm install
+   ```
 
 ## How to Run
 
 ### Run a JavaScript file
-
 From repository root:
 
 ```bash
-node "ch2/Module 1/Questions/q1.js"
+node "Ch 2/Module 1/1.js"
+node "Ch 3/http module/8.js"
+node "Ch 4/1.js"
 ```
 
-Use the same pattern for any `.js` file.
+### Run an Express server
+Navigate to the relevant folder and start:
+
+```bash
+cd "Ch 5/Express/Backend"
+npm install
+npm start
+# or
+node 1.js
+```
 
 ### Open an HTML file
+- Open directly in a browser
+- Or use VS Code's Live Server extension
+- Examples:
+  - `Ch 2/Module 1/1.html`
+  - `Ch 5/question/q1/Express/html/1.html`
+  - `Ch 6/Multer/index.html`
 
-Open directly in a browser, for example:
+## Chapter Overview
 
-- `ch2/Module 1/1.html`
-- `ch2/Module 1/Questions/q3.html`
+### **Node.js Part**
 
-In VS Code, you can also use Live Server if installed.
+| Chapter | Topic | Key Skills |
+|---------|-------|-----------|
+| **Ch 2** | JavaScript Modules | require, exports, module patterns |
+| **Ch 3** | Node.js Core Modules | URL parsing, HTTP servers |
 
-## Notes
+### **Express.js Part**
 
-- Folder names and some files use spaces and mixed casing; keep exact paths while running commands.
-- Exercises are intended for learning and may include alternate solutions across files.
+| Chapter | Topic | Key Skills |
+|---------|-------|-----------|
+| **Ch 4** | Express Basics | Routing, middleware, query handling |
+| **Ch 5** | Express Advanced | Sessions, cookies, full-stack apps |
+| **Ch 6** | Templates & Utilities | EJS rendering, file uploads (Multer), email (Mailer) |
 
-## Suggested Workflow
+## Important Notes
 
-1. Pick one module and solve files in order.
-2. Run each JavaScript solution using Node.
-3. Verify HTML outputs in browser.
-4. Keep your own notes or answers in separate files if needed.
+- File and folder names use spaces and mixed casing; use exact paths when running commands
+- Wrap paths in quotes: `node "Ch 2/Module 1/1.js"`
+- Each question folder typically contains a `.md` file describing the task and an `answer/` folder with the solution
+- Some folders contain `node_modules` copies (e.g., Ch 5/question/q5/); these are development artifacts
+- Exercises can be solved independently or in sequence
+
+## Suggested Learning Path
+
+### **Phase 1: Node.js Fundamentals**
+1. **Ch 2**: Master JavaScript modules and fundamentals
+2. **Ch 3**: Learn Node.js built-in modules (HTTP, URL)
+
+### **Phase 2: Express.js Development**
+3. **Ch 4**: Master Express.js routing and middleware
+4. **Ch 5**: Build full-stack applications with sessions and cookies
+5. **Ch 6**: Add templating (EJS), file uploads (Multer), and email functionality
+
+## Tips
+
+- Read the `.md` files in question folders for detailed instructions
+- Check `answer/` directories for working solutions
+- Use `package.json` to understand dependencies and available scripts
+- Test HTML files in a browser to see frontend rendering
+- Use Node.js debugging: `node --inspect "file.js"` then open `chrome://inspect`
