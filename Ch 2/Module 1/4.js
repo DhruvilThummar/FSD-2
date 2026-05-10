@@ -1,32 +1,46 @@
-// "FS" Module  (Sync Programing)
+// File System (FS) Module - Synchronous File Operations
+// This file demonstrates how to work with files using Node.js fs module (sync version)
 
-var ps = require("fs");
+var ps = require("fs");  // Import fs module for file system operations
 
-// for create a folder
-// ps.mkdirSync("node");
+// ==========================================
+// Example 1: Create Directory (Commented)
+// ==========================================
+// ps.mkdirSync("node");  // Create a directory synchronously (blocks further execution)
 
-// ps.writeFileSync("node/write.txt","Hello");
+// ==========================================
+// Example 2: Write and Append to Files (Commented)
+// ==========================================
+// ps.writeFileSync("node/write.txt","Hello");  // Create file with content
+// ps.appendFileSync("node/write.txt","\nByee");  // Append text to file (\n = newline)
 
-// ps.appendFileSync("node/write.txt","\nByee")  //   \n for new line
-
-// data = ps.readFileSync("node/write.txt");
-// console.log(data);  // thats give buffer string
-
-// data = data.toString();  // thats convertv buffer string to string
+// ==========================================
+// Example 3: Read File Content (Commented)
+// ==========================================
+// data = ps.readFileSync("node/write.txt");  // Returns Buffer object
+// console.log(data);  // Logs buffer string (unreadable format)
+//
+// data = data.toString();  // Convert buffer to readable string
+// console.log(data);
+//
+// // Alternative: Specify encoding directly
+// data = ps.readFileSync("node/write.txt", "utf-8");  // Returns string directly
 // console.log(data);
 
-// data = ps.readFileSync("node/write.txt", "utf-8");   // utf-8 convert buffer string into stering
-// console.log(data);
-
-// for renamne file
-// ps.renameSync("node/write.txt",'node/read.txt');
-
-// for copy file
-// ps.copyFileSync("node/read.txt","node/abc.txt");
-
-// delete the file
-// ps.unlinkSync("node/read.txt");
+// ==========================================
+// Example 4: File Operations (Commented)
+// ==========================================
+// ps.renameSync("node/write.txt", 'node/read.txt');  // Rename file
+// ps.copyFileSync("node/read.txt", "node/abc.txt");  // Copy file
+// ps.unlinkSync("node/read.txt");  // Delete file
 // ps.unlinkSync("node/abc.txt");
+
+// ==========================================
+// Important Notes:
+// - Sync operations BLOCK code execution (not recommended for production)
+// - For non-blocking operations, use Async versions (fs.readFile, fs.writeFile, etc.)
+// - Always specify encoding (utf-8) when reading text files
+// ==========================================
 
 // delete folder
 // ps.rmdirSync("node");

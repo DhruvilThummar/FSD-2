@@ -1,35 +1,49 @@
-//  create a middleware that log a massge indicating that a student has enterd tyhe campus when ever the requesd is made.
-// create another middleware that chake wather a student has a walid id. if the id is walid. store the student name in a request object and allow accesss.
-// if the id is not valid , stop ferther proccsing and send approipriat massage.
-// applye both middleware functions to route "/class" .
+// Express Middleware - Logging and Authentication
+// Questions: Create two middleware functions for campus entry logging and ID validation
+// Tasks:
+// 1. Create middleware that logs when student enters campus
+// 2. Create middleware that validates student ID
+// 3. If ID is valid, store student name in request object and allow access
+// 4. If ID is invalid, stop processing and send "Access Denied"
+// 5. Apply both middleware to "/class" route
 
-var express = require("express");
+var express = require("express");  // Import Express
+var app = express();               // Create Express app
 
-var app = express();
-
-const entrylog=(req,res,next)=>{
-    console.log("Student entered campus");
-    next();
+// ==========================================
+// Middleware 1: Entry Logging
+// ==========================================
+const entrylog = (req, res, next) => {
+    console.log("Student entered campus");  // Log entry message
+    next();  // Pass to next middleware
 };
 
-const checkId=(req,res,next)=>{
-    hasId=true;
-    if(hasId){
-        req.name="xyz";
-        console.log("ID verified");
-        next();
+// ==========================================
+// Middleware 2: ID Validation
+// ==========================================
+const checkId = (req, res, next) => {
+    hasId = true;  // Simulated ID check
+    
+    if(hasId) {
+        req.name = "xyz";  // Store student name in request object
+        console.log("ID verified");  // Log successful verification
+        next();  // Pass to route handler
     }
-    else{
-        req.send("Access Denied");
+    else {
+        res.send("Access Denied");  // Deny access if ID invalid
+        // Note: next() is NOT called, so route handler won't execute
     }
 };
 
-app.use("/class",entrylog,checkId);
+// ==========================================
+// Route: Apply both middleware
+// ==========================================
+app.use("/class", entrylog, checkId);  // Apply middleware to this route
 
-app.get("/class",(req,res)=>{
-    res.send("Welcome "+req.name);
+app.get("/class", (req, res) => {
+    res.send("Welcome " + req.name);  // Access granted, display welcome
 });
 
 app.listen(6005, function () {
-  console.log("http://localhost:6005/class");
+  console.log("Server running at: http://localhost:6005/class");
 });

@@ -1,5 +1,6 @@
-
-var path=require("path");
+// Buffer Module - Handle Binary Data
+// This file demonstrates how to work with buffers in Node.js
+// (Content to be populated - buffer operations examples)
 
 path1 = path.dirname("D:/LJ/abc.html");
 console.log(path1);
