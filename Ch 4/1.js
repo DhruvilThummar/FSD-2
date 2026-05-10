@@ -1,13 +1,14 @@
-// create a sever 
+// Express Server - Basic Setup and Routing
+// This file contains various Express server examples and patterns
 
-var express = require('express');
+var express = require('express');  // Import Express framework
+var app=express();                 // Create Express application
 
-var app=express();
-
+// Example 1: Simple Text Response (Commented)
 // app.get('/',function(req,res)
 //     {
-//         res.set("content-type","text/plain");
-//         res.send("Hello")
+//         res.set("content-type","text/plain");  // Set response content type to plain text
+//         res.send("Hello")                        // Send response text
 //     }
 // );
 
@@ -18,11 +19,10 @@ var app=express();
 //     }
 // )
 
-// set header yousing send
-
+// Example 2: HTML Response with Headers
 // app.get('/',function(req,res)
 //     {
-//         res.send("<H1>Hello</H1>")
+//         res.send("<H1>Hello</H1>")  // Send HTML response
 //     }
 // );
 

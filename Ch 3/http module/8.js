@@ -1,33 +1,31 @@
-// use httpmodule create a server for hendal https request.
+// HTTP Module - Create a Server
+// Demonstrates how to create and handle HTTP requests using Node.js HTTP module
 
-var http = require("http");
+var http = require("http");  // Import Node.js HTTP module
 
-// http.createServer(function (req, res) {  // request and response are the object of http module which are used to handle the request and response of the server
-//   res.writeHead(200, { 'content-type': 'text/html' });  // set header for response with status code and content type
-//   res.write("<h1 style='color:pink'>Hello! How are you ?</h1>");  // write response body
-//   res.end();  // end the response  
-// }).listen(5126);
+// Example 1: Simple HTTP Server (Commented)
+// http.createServer(function (req, res) {
+//     // req: Request object - contains information about the incoming request
+//     // res: Response object - used to send response back to client
+//     res.writeHead(200, { 'content-type': 'text/html' });  // Set status code and headers
+//     res.write("<h1 style='color:pink'>Hello! How are you ?</h1>");  // Write response body
+//     res.end();  // Complete the response
+// }).listen(5126);  // Listen on port 5126
 
-// http.createServer(function(req,res){
-//     res.writeHead(200,{'content-type':'text/html'});
+// Example 2: Multiple Write Operations (Commented)
+// http.createServer(function(req, res) {
+//     res.writeHead(200, {'content-type': 'text/html'});
 //     res.write("<h1 style='color:pink'>Hello! How are you ?</h1>");
-//     res.write("<h3>Byee...!</h3>")
+//     res.write("<h3>Bye...!</h3>");  // Multiple writes possible
 //     res.end();
 // }).listen(5126);
 
-// http.createServer(function(req,res){
-//     res.writeHead(200,{'content-type':'text/html'});
-//     res.write("<h1 style='color:pink'>Hello! How are you ?</h1>");
-//     res.write("<h3>Byee...!</h3>")
-//     res.end();
-//     // res.write("Who are You?")  // its given error write afeter end
-// }).listen(5126);
-
+// Example 3: Current - Display Request URL
 http
   .createServer(function (req, res) {
     res.writeHead(200, { "content-type": "text/html" });
-    res.write(req.url + "<br>");
-    res.write("url fetched");
-    res.end();
+    res.write(req.url + "<br>");  // Display the requested URL path
+    res.write("URL fetched");      // Confirmation message
+    res.end();                     // End response
   })
-  .listen(5126);
+  .listen(5126);  // Server listens on port 5126

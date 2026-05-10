@@ -1,25 +1,31 @@
-var nm=require("nodemailer");
+// Node Mailer - Send Email Examples
+// This file demonstrates how to send emails using Node Mailer
 
-var trans=nm.createTransport({
-    host:"smtp.gmail.com",
-    port:465,
-    auth:{
-        user:"sender@gmail.com",  // use your mail
-        pass:"App Pass"   // use google app password 
+var nm = require("nodemailer");  // Import the Node Mailer module
+
+// Configure the mail transport service (Gmail SMTP)
+var trans = nm.createTransport({
+    host: "smtp.gmail.com",      // Gmail's SMTP server address
+    port: 465,                   // Secure port for SMTP (SSL/TLS)
+    auth: {
+        user: "sender@gmail.com",    // Replace with your Gmail address
+        pass: "App Pass"             // Replace with your Gmail App Password
     }
 });
 
-var mailoption={
-    from:"sender@gmail.com",
-    to:"receiver@gmail.com",
-    subject:"Hello",
-    text:"Hire",  // only text kato html lakvu banne kyarey na lakhvu
-    html:"<h1>Test mail <b>By</b></h1>"
+// Define the mail options (recipient, subject, content)
+var mailoption = {
+    from: "sender@gmail.com",        // Sender email address
+    to: "receiver@gmail.com",        // Recipient email address
+    subject: "Hello",                // Email subject line
+    text: "Hire",                    // Plain text version (fallback)
+    html: "<h1>Test mail <b>By</b></h1>"  // HTML version of the email
 };
 
-trans.sendMail(mailoption,(err,info)=>{
-    if(err){
-        console.error(err);
+// Send the email
+trans.sendMail(mailoption, (err, info) => {
+    if (err) {
+        console.error("Email sending error:", err);  // Log any errors
     }
-    console.info(info);
+    console.log("Email sent successfully:", info);  // Log success info
 });

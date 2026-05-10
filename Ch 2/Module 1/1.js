@@ -1,30 +1,33 @@
-// About json
+// JSON Handling Examples in Node.js
+// This file demonstrates JSON parsing, stringify, and object manipulation
+
+// Example 1: Creating and Logging a JSON Object
 // var a = {
 //     "name": "abc",
 //     "age": 25
 // };
+// console.log(a);  // Logs the object to console
 
-// console.log(a);
-
-
-// Load json file and run those
-// const data = require("./1.json");
+// Example 2: Loading JSON from External File
+// const data = require("./1.json");  // Import JSON file as a module
 // console.log(data)
 
-
-// json perse methoud
+// Example 3: JSON.parse() - Convert String to Object
+// Parses a JSON string and converts it into a JavaScript object
 // let obj = JSON.parse('{"var1":"lj","var2":"University"}');
-// console.log(obj);
-// console.log(obj.var1+" "+obj.var2);
-// let obj = ('{"var1":"lj","var2":"University"}');
-// console.log(obj);
-// console.log(obj.var1+" "+obj.var2);
+// console.log(obj);                          // Logs: { var1: 'lj', var2: 'University' }
+// console.log(obj.var1+" "+obj.var2);       // Access object properties
 
+// Example 4: String Without Parsing (Wrong Way)
+// let obj = ('{"var1":"lj","var2":"University"}');  // This is just a string
+// console.log(obj);                    // Logs the string as-is
+// console.log(obj.var1+" "+obj.var2);  // Returns 'undefined undefined'
 
-// json stringify methoud
+// Example 5: JSON.stringify() - Convert Object to String
+// Converts a JavaScript object into a JSON string
 // let obj = JSON.stringify({"var1":"lj","var2":"University"});
-// console.log(obj);
-// console.log(obj.var1+" "+obj.var2);
+// console.log(obj);  // Logs JSON string: '{"var1":"lj","var2":"University"}'
+// console.log(obj.var1+" "+obj.var2);  // var1 and var2 will be undefined
 
 // let update= JSON.parse(obj)
 // console.log(obj);
