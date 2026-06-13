@@ -4,18 +4,20 @@ import axios from "axios";
 function randomimage() {
   const [myimg, setimg] = useState("");
 
+  const ax = (() => {
+    axios
+      .get("https://dog.ceo/api/breeds/image/random")
+      .then((response) => {
+        console.log(response.data);
+        setimg(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  })
+
   useEffect(() => {
-    setInterval(() => {
-      axios
-        .get("https://dog.ceo/api/breeds/image/random")
-        .then((response) => {
-          console.log(response.data);
-          setimg(response.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, 2000);
+    setInterval(ax, 2000);
   }, []);
 
   return (

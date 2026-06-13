@@ -7,7 +7,7 @@ function reducer(state, action) {
     return state + 1;
   }
   if (action.type === "decrement") {
-    return state + 1;
+    return state - 1;
   }
 }
 
