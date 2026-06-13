@@ -3,12 +3,12 @@
 > A comprehensive practice repository covering Node.js fundamentals and Express.js development with hands-on exercises and solutions.
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg)](LICENSE)
-![Chapters](https://img.shields.io/badge/Chapters-6-blue)
+![Chapters](https://img.shields.io/badge/Chapters-8-blue)
 ![Type](https://img.shields.io/badge/Type-Learning%20Materials-brightgreen)
 
 ## 📚 Overview
 
-This repository is organized into **two main learning phases**:
+This repository is organized into **three main learning phases**:
 
 ### **Phase 1: Node.js Fundamentals (Chapters 2-3)**
 Master the core concepts of Node.js before moving to web frameworks:
@@ -23,6 +23,11 @@ Build complete full-stack web applications:
 - 📄 EJS templating for dynamic HTML rendering
 - 📤 File uploads with Multer
 - 📧 Email functionality with Node Mailer
+
+### **Phase 3: Frontend Development with React (Chapters 7-8)**
+Create interactive user interfaces with modern React:
+- ⚛️ React basics with Vite, JSX rules, and Routing
+- 🪝 React Hooks (useState, useEffect, useContext, useRef) and Axios integration
 
 ## Repository Structure
 
@@ -73,6 +78,14 @@ FSD-2/
 │   ├── Multer/ (index.html + m1.js + lju/)
 │   │
 │   └── Node mailer/ (mailer.js)
+│
+├── Ch 7/ - React Basics & Vite
+│   ├── React Vite.md
+│   └── myapp/ (Vite + React starter, Routing, JSX rules)
+│
+├── Ch 8/ - React Hooks
+│   ├── React Hooks.md
+│   └── myapp/ (React app with Hooks, Axios, State management)
 │
 └── README.md
 ```
@@ -140,6 +153,18 @@ cd "Ch 6"
 npm install
 ```
 
+**Chapter 7:** React Basics (Vite)
+```bash
+cd "Ch 7/myapp"
+npm install
+```
+
+**Chapter 8:** React Hooks
+```bash
+cd "Ch 8/myapp"
+npm install
+```
+
 ## 🎯 How to Run
 
 ### Run JavaScript Files
@@ -170,6 +195,22 @@ npm start
 cd "Ch 6"
 npm install
 node app.js
+```
+
+### Run React (Vite) Projects
+
+For React applications, use the Vite dev server:
+
+```bash
+# Chapter 7 - React Basics
+cd "Ch 7/myapp"
+npm install
+npm run dev
+
+# Chapter 8 - React Hooks
+cd "Ch 8/myapp"
+npm install
+npm run dev
 ```
 
 ### View HTML & Frontend Files
@@ -205,6 +246,13 @@ node app.js
 | **Ch 5** | Express Advanced | Sessions, cookies, auth | User authentication, login systems |
 | **Ch 6** | Templates & Utilities | EJS, file uploads, email | Dynamic pages, file handling, emails |
 
+### **React / Frontend Part**
+
+| Chapter | Topic | Key Skills | What You'll Build |
+|---------|-------|-----------|-------------------|
+| **Ch 7** | React Basics | JSX Rules, Router | Starter React App with routing |
+| **Ch 8** | React Hooks | useState, useEffect, Axios | React App with API requests & hooks |
+
 ## 🎓 Learning Outcomes
 
 By completing this course, you will understand:
@@ -221,6 +269,12 @@ By completing this course, you will understand:
 - ✅ Session and cookie management
 - ✅ Template engines for dynamic HTML
 - ✅ File uploads and email integration
+
+### **React Frontend Development**
+- ✅ React JSX rules & syntax
+- ✅ React Router for multi-page applications
+- ✅ State and Hook management (useState, useEffect, useRef, useContext)
+- ✅ Fetching data with Axios
 
 ## 📝 Working with Questions
 
@@ -320,6 +374,14 @@ node "path/to/server.js"
 5. **Ch 6**: Templates and utilities
    - [ ] EJS templating
    - [ ] File uploads and email
+   
+### **Phase 3: React Frontend Development (3-4 days)**
+6. **Ch 7**: React Basics & Vite
+   - [ ] JSX rules practice
+   - [ ] Setup React routing
+7. **Ch 8**: React Hooks
+   - [ ] Implement state & refs
+   - [ ] Consume API with Axios
 
 ## ⚡ Quick Commands Reference
 
@@ -337,6 +399,10 @@ node "Ch 3/url module/7.js"
 cd "Ch 4" && npm install && npm start
 cd "Ch 5/Express/Backend" && npm install && npm start
 cd "Ch 6" && npm install && npm start
+
+# React / Vite Projects
+cd "Ch 7/myapp" && npm install && npm run dev
+cd "Ch 8/myapp" && npm install && npm run dev
 ```
 
 ### Port Management

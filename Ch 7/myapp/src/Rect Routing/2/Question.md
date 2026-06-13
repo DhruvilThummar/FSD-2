@@ -1,0 +1,3 @@
+# Myreact.jsx is set for router and define the routes. home.jsx for home page and product.jsx for product page. implemenyt navigantion between this routes.
+# When a user clicks on a home page link, itshoud navigate to home page and display welcom to lju with h1 heading and blue. also inclue link to product page.
+# product pagwe displays 3 product information (name, price,imege) using props. When a user clicks on product page link, it shoud navvigate to product page and displayes info of three product.

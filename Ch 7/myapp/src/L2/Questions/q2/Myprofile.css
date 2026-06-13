@@ -1,0 +1,6 @@
+.box {
+  color: brown;
+  border: 2px antiquewhite solid;
+  align-items: flex-end;
+  font-family: "Times New Roman", Times, serif;
+}
