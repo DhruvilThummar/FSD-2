@@ -1,16 +1,16 @@
-# Rect Vite
+# React Vite
 
 ## JSX Rules
-- Return Single Root Element
-- Close All Tags
-- Use camelCase Attributes
-- Passing JS Expression `(in { })`
-- JSX Styling `(Give in 2 {{...}} )`
-- JSX Comments `Single line {/*  ... */}
-multiline
-{
-    /*
+- Return a single root element
+- Close all tags
+- Use camelCase attributes
+- Pass JavaScript expressions inside curly braces `{}`
+- Provide JSX styling as an object using double curly braces `{{ ... }}`
+- Use JSX comments:
+  - Single-line: `{/* ... */}`
+  - Multi-line:
+    ```javascript
+    {/*
     ...
-    */
-}`
-
+    */}
+    ```

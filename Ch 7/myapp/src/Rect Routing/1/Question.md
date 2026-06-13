@@ -1,5 +1,8 @@
-# Create a react app using functionl component and react router dom creat routes from home,shop,contact,page not fount. emplimant navagination using link
+# Create a React application using functional components and `react-router-dom`. Create routes for Home, Shop, Contact, and Page Not Found. Implement navigation using `Link`.
 
 ---
 
-## Display home page on home route, shop page on shop route and page not found for in valid url
+## Requirements
+- Display the Home page on the home route (`/`).
+- Display the Shop page on the shop route (`/shop`).
+- Display a "Page Not Found" message for any invalid URLs.
