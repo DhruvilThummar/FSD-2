@@ -45,7 +45,7 @@ public class MongoConnection {
             System.out.println("✅ Compound Index created on sales collection!");
 
             // 5. Insert Multiple Documents (insertMany)
-            Document doc1 = new Document("name", "Bharat")
+            Document doc1 = new Document("name", "Dhruvil")
                     .append("surname", "Thummar")
                     .append("age", 22)
                     .append("department", "CS");
