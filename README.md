@@ -3,12 +3,12 @@
 > A comprehensive practice repository covering Node.js fundamentals and Express.js development with hands-on exercises and solutions.
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg)](LICENSE)
-![Chapters](https://img.shields.io/badge/Chapters-8-blue)
+![Chapters](https://img.shields.io/badge/Chapters-10-blue)
 ![Type](https://img.shields.io/badge/Type-Learning%20Materials-brightgreen)
 
 ## 📚 Overview
 
-This repository is organized into **three main learning phases**:
+This repository is organized into **four main learning phases**:
 
 ### **Phase 1: Node.js Fundamentals (Chapters 2-3)**
 Master the core concepts of Node.js before moving to web frameworks:
@@ -28,6 +28,13 @@ Build complete full-stack web applications:
 Create interactive user interfaces with modern React:
 - ⚛️ React basics with Vite, JSX rules, and Routing
 - 🪝 React Hooks (useState, useEffect, useContext, useRef) and Axios integration
+
+### **Phase 4: Database & MERN Integration (Chapters 9-10)**
+Master NoSQL database operations, Mongoose ODM, and full-stack integration:
+- 🍃 MongoDB CRUD operations, comparison operators, and updates
+- 📊 Aggregation framework (`$match`, `$group`, `$project`, `$sort`)
+- 🛡️ Mongoose Schema, Model compilation, validators, and indexing (`IXSCAN` vs `COLLSCAN`)
+- 🔌 MongoDB Connections in Node.js, Express, Python, and Java
 
 ## Repository Structure
 
@@ -86,6 +93,15 @@ FSD-2/
 ├── Ch 8/ - React Hooks
 │   ├── React Hooks.md
 │   └── myapp/ (React app with Hooks, Axios, State management)
+│
+├── Ch 9/ - MongoDB Queries, Operators & Aggregation
+│   ├── README.md (Developer reference, operator cheat sheet & aggregation recipes)
+│   └── mongodb_queries_demo.js (Live interactive query & aggregation demo script)
+│
+├── Ch 10/ - Mongoose & MERN Integration
+│   ├── README.md (Mongoose guide, schema validation, indexing & performance tuning)
+│   ├── app/ (Full-stack MERN Express & Mongoose REST API app)
+│   └── connections/ (Node.js, Express, Python, Java connection scripts)
 │
 └── README.md
 ```
@@ -253,6 +269,13 @@ npm run dev
 | **Ch 7** | React Basics | JSX Rules, Router | Starter React App with routing |
 | **Ch 8** | React Hooks | useState, useEffect, Axios | React App with API requests & hooks |
 
+### **Database & MERN Part**
+
+| Chapter | Topic | Key Skills | What You'll Build |
+|---------|-------|-----------|-------------------|
+| **Ch 9** | MongoDB | CRUD, Query Operators, Aggregation | Database queries, aggregation pipelines, cheat sheet |
+| **Ch 10** | Mongoose & MERN | Schemas, Validation, Indexing, Multi-Language Connections | Full-stack MERN APIs, PyMongo, Java Driver & Mongoose scripts |
+
 ## 🎓 Learning Outcomes
 
 By completing this course, you will understand:
@@ -275,6 +298,16 @@ By completing this course, you will understand:
 - ✅ React Router for multi-page applications
 - ✅ State and Hook management (useState, useEffect, useRef, useContext)
 - ✅ Fetching data with Axios
+
+### **MongoDB & Database Management**
+- ✅ Document database design & BSON/JSON operations
+- ✅ Advanced queries with comparison & logical operators (`$in`, `$nin`, `$gte`, `$lt`)
+- ✅ Field updates & increments (`$set`, `$inc`, `upsert`)
+- ✅ Pagination & sorting (`sort`, `skip`, `limit`)
+- ✅ Aggregation pipelines (`$match`, `$group`, `$project`, `$sort`)
+- ✅ Mongoose schema modeling, custom validators, and `trim` modifiers
+- ✅ Query execution plans (`IXSCAN` vs `COLLSCAN`) and compound indexing
+- ✅ Multi-language MongoDB connection drivers (Node.js/Express, Python PyMongo/MongoEngine, Java Driver)
 
 ## 📝 Working with Questions
 
